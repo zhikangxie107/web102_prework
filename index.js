@@ -116,7 +116,6 @@ function filterUnfundedOnly() {
   addGamesToPage(unfundedGames);
 }
 
-
 // show only games that are fully funded
 function filterFundedOnly() {
   deleteChildElements(gamesContainer);
@@ -146,7 +145,7 @@ const allBtn = document.getElementById("all-btn");
 // add event listeners with the correct functions to each button
 unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
-allBtn.addEventListener("click", showAllGames)
+allBtn.addEventListener("click", showAllGames);
 
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
@@ -157,11 +156,24 @@ allBtn.addEventListener("click", showAllGames)
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+const unfundedGames_amt = GAMES_JSON.reduce((acc, game) => {
+  return (acc += game.pledged < game.goal ? 1 : 0);
+}, 0);
 // create a string that explains the number of unfunded games using the ternary operator
+const displayStr =
+  unfundedGames_amt <= 1
+    ? `A total of $${totalContributions.toLocaleString(
+        "en-US"
+      )} has been raised for ${totalGames}. Currently, 1 game remains unfunded. We need your help to fund these amazing games!`
+    : `A total of $${totalContributions.toLocaleString(
+        "en-US"
+      )} has been raised for ${totalGames}. Currently, ${unfundedGames_amt} games remains unfunded. We need your help to fund these amazing games!`;
 
 // create a new DOM element containing the template string and append it to the description container
+const description = document.createElement("p");
+description.innerHTML = displayStr;
 
+descriptionContainer.appendChild(description);
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
  * Skills used: spread operator, destructuring, template literals, sort
