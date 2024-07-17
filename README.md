@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='https://i.imgur.com/FM8440c.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<iframe class="imgur-embed" width="100%" height="932" frameborder="0" src="https://i.imgur.com/FM8440c.gifv#embed"></iframe>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Convertio  
