@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-![WalkThrough](https://i.imgur.com/A8stVNYb.gif)
+![Walkthrough](assets/walkthrough.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Convertio  
@@ -37,6 +37,10 @@ GIF created with Convertio
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+- Overall the prework was well structured and taught the necessary concepts to complete each challenge.
+- Surprisingly I also learned new javascript and DOM techniques, which made the prework very enjoyable.
+- One small difficulty was creating typos in the code that led to the website not rendering. 
 
 ## License
 
