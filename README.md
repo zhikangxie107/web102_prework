@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<iframe class="imgur-embed" width="100%" height="932" frameborder="0" src="https://i.imgur.com/FM8440c.gifv#embed"></iframe>
+![WalkThrough](https://i.imgur.com/A8stVNYb.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Convertio  
@@ -40,7 +40,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2024] [Zhi Kang Xie]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
