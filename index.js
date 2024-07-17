@@ -50,6 +50,22 @@ function addGamesToPage(games) {
 
     gameCard.innerHTML = gameCardTemplate;
 
+    //extra info
+    const gamePledged = game.pledged;
+    const gameGoal = game.goal;
+    const gameBackers = game.backers;
+
+    gameCard.addEventListener("click", () => {
+      showPopup(
+        gameName,
+        gameDescript,
+        gamePledged,
+        gameGoal,
+        gameBackers,
+        gameImage
+      );
+    });
+
     // append the game to the games-container
     const gamesContainer = document.getElementById("games-container");
     gamesContainer.appendChild(gameCard);
@@ -192,10 +208,46 @@ console.log(firstGame);
 console.log(secondGame);
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
-const fundedGame01 = document.createElement('p');
+const fundedGame01 = document.createElement("p");
 fundedGame01.innerHTML = firstGame.name;
 firstGameContainer.appendChild(fundedGame01);
 // do the same for the runner up item
-const fundedGame02 = document.createElement('p');
+const fundedGame02 = document.createElement("p");
 fundedGame02.innerHTML = secondGame.name;
 secondGameContainer.appendChild(fundedGame02);
+
+//bonus feature
+//create a pop up showing more detail information on each game
+function showPopup(name, description, pledged, goal, backers, image) {
+  console.log("pop up function runs");
+  const popup = document.getElementById("game-popup");
+  const popupContent = document.getElementById("popup-content");
+
+  let template = `<span class="close-button">&times;</span>
+                    <img src=${image} class="game-img" id="popup-img" /> 
+                    <h1 id="popup-title">${name} </h1> 
+                    <p id="popup-description">${description}</p>
+                    <p id="popup-pledged">Amount Pledged: $${pledged.toLocaleString(
+                      "en-us"
+                    )}</p>
+                    <p id="popup-goal">Goal: $${goal.toLocaleString(
+                      "en-us"
+                    )}</p>
+                    <p id="popup-backers">Contributors: ${backers}</p>`;
+
+  //show amount left to reach goal if the amount pledged is less than the goal
+  const desireAmount = goal-pledged;
+  template += pledged < goal ? `<p id="popup-left">$${desireAmount.toLocaleString("en-us")} to reach the goal! </p>` : ``;
+
+  popupContent.innerHTML = template;
+
+  popup.classList.remove("hidden");
+  popup.style.display = "block";
+
+  const closeButton = document.querySelector(".close-button");
+
+  closeButton.addEventListener("click", () => {
+    popup.classList.add("hidden");
+    popup.style.display = "none";
+  });
+}
