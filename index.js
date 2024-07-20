@@ -145,6 +145,8 @@ function filterFundedOnly() {
   addGamesToPage(fundedGames);
 }
 
+filterFundedOnly();
+
 // show all games
 function showAllGames() {
   deleteChildElements(gamesContainer);
@@ -236,8 +238,13 @@ function showPopup(name, description, pledged, goal, backers, image) {
                     <p id="popup-backers">Contributors: ${backers}</p>`;
 
   //show amount left to reach goal if the amount pledged is less than the goal
-  const desireAmount = goal-pledged;
-  template += pledged < goal ? `<p id="popup-left">$${desireAmount.toLocaleString("en-us")} to reach the goal! </p>` : ``;
+  const desireAmount = goal - pledged;
+  template +=
+    pledged < goal
+      ? `<p id="popup-left">$${desireAmount.toLocaleString(
+          "en-us"
+        )} to reach the goal! </p>`
+      : ``;
 
   popupContent.innerHTML = template;
 
